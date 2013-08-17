@@ -18,13 +18,14 @@ class Router
         switch(count($segments)){
             case 0: set('page', HOME_CLASS); set('request', 'index'); break;
             case 1: if($segments[0] == ''){
-                        set('page', HOME_CLASS); set('request', 'index');
-                    } else {
-                        set('page', $segments[0]); set('request', 'index');
-                    } break;
+                set('page', HOME_CLASS); set('request', 'index');
+            } else {
+                set('page', $segments[0]); set('request', 'index');
+            } break;
             case 2: set('page', $segments[0]); set('request', $segments[1]); break;
             default: set('page', $segments[0]); set('request', $segments[1]);
-                     set('vars', urldecode(substr($uri, strlen('/'.$segments[0].'/'.$segments[1].'/')))); break;
+            //TODO replace with security class once done
+            set('vars', addslashes(strip_tags(htmlspecialchars(urldecode(substr($uri, strlen('/'.$segments[0].'/'.$segments[1].'/'))))))); break;
         }
         set('uri', BASE_URL.$_SERVER['REQUEST_URI']);
     }
@@ -36,8 +37,8 @@ class Router
             $this->class = new $class;
             if( in_array(get('request'), get_class_methods($class)) ){
                 $this->method = get('request');
-                if(in_array('method_meta', get_class_methods($class)) ){
-                    return $this->class->method_meta(get('request'));
+                if(in_array('__meta__', get_class_methods($class)) ){
+                    return $this->class->__meta__(get('request'));
                 }
             } else {
                 require_once(CONTENT.'error.page.php');
@@ -55,7 +56,13 @@ class Router
     }
 
     public function head(){
-        $this->class->__head__(get('vars'));
+        $method = $this->method;
+        if(!in_array("Admin", class_implements($this->class)))
+            $this->class->__head__(get('vars'));
+        else {
+            if($this->class->allowed($method, $_SESSION['user_permissions']))
+                $this->class->__head__(get('vars'));
+        }
     }
 
     public function title(){
@@ -64,12 +71,15 @@ class Router
 
     public function body(){
         $method = $this->method;
-        if(in_array("Page", class_implements($this->class)))
+        if(!in_array("Admin", class_implements($this->class)))
+        {
             $this->class->$method(get('vars'));
+        }
         else {
             if($this->class->allowed($method, $_SESSION['user_permissions']))
                 $this->class->$method(get('vars'));
             else {
+                require_once(CONTENT.'error.page.php');
                 $c = new error();
                 $c->_503(get('vars'));
             }

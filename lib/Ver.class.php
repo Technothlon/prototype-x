@@ -21,37 +21,54 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-
-class Ver extends Block {
-    public function __construct($length, $id, $position){
+if (!defined('xDEC')) exit;
+class Ver extends Block
+{
+    public function __construct($length, $id, $position)
+    {
         parent::__construct($length, $id, $position);
     }
+
     public function move($by, $map)
     {
         parent::move($by, $map);
+        $start = $this->position[0];
+        $end = $this->position[$this->length - 1];
+        switch ($by) {
+            case 1:
+                $map[$end[0] + 1][$end[1]] = $this->id;
+                $map[$start[0]][$start[1]] = 0;
+                foreach ($this->position as $i => $p) {
+                    $this->position[$i][0] = $p[0] + 1;
+                }
+                break;
+            case -1:
+                $map[$start[0] - 1][$start[1]] = $this->id;
+                $map[$end[0]][$end[1]] = 0;
+                foreach ($this->position as $i => $p) {
+                    $this->position[$i][0] = $p[0] - 1;
+                }
+                break;
+        }
+        return $map;
     }
 
     public function movable($by, $map)
     {
+        ////echo 'ver ';
         parent::movable($by, $map);
         $start = $this->position[0];
         $end = $this->position[$this->length - 1];
+        //echo ' (' . $start[0] . ', ' . $start[1] . ' and ' . $end[0] . ', ' . $end[1] . ')<br>';
         $return = false;
         switch ($by) {
             case 1:
-                try {
-                    if ($map[$end[0][0] + 1][$end[0][1]] == 0)
-                        $return = true;
-                } catch (Exception $e) {
-                }
+                if (($end[0] >= 0 && $end[0] < 5) && ($end[1] >= 0 && $end[1] < 6) && $map[$end[0] + 1][$end[1]] == 0)
+                    $return = true;
                 break;
             case -1:
-                try {
-                    if ($map[$start[0][0] - 1][$start[0][1]] == 0)
-                        $return = true;
-                } catch (Exception $e){
-
-                }
+                if (($start[0] > 0 && $start[0] < 6) && ($start[1] >= 0 && $start[1] < 6) && $map[$start[0] - 1][$start[1]] == 0)
+                    $return = true;
         }
         return $return;
     }

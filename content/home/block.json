@@ -1,0 +1,68 @@
+{"frames": [
+
+{
+	"filename": "back-play.png",
+	"frame": {"x":2,"y":2,"w":576,"h":576},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":576,"h":576},
+	"sourceSize": {"w":576,"h":576}
+},
+{
+	"filename": "back.png",
+	"frame": {"x":2,"y":580,"w":576,"h":576},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":576,"h":576},
+	"sourceSize": {"w":576,"h":576}
+},
+{
+	"filename": "block_ext_2.png",
+	"frame": {"x":2,"y":1158,"w":192,"h":96},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":192,"h":96},
+	"sourceSize": {"w":192,"h":96}
+},
+{
+	"filename": "block_hor_2.png",
+	"frame": {"x":196,"y":1158,"w":192,"h":96},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":192,"h":96},
+	"sourceSize": {"w":192,"h":96}
+},
+{
+	"filename": "block_hor_3.png",
+	"frame": {"x":2,"y":1256,"w":288,"h":96},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":288,"h":96},
+	"sourceSize": {"w":288,"h":96}
+},
+{
+	"filename": "block_ver_2.png",
+	"frame": {"x":292,"y":1256,"w":96,"h":192},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":192},
+	"sourceSize": {"w":96,"h":192}
+},
+{
+	"filename": "block_ver_3.png",
+	"frame": {"x":390,"y":1256,"w":96,"h":288},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":288},
+	"sourceSize": {"w":96,"h":288}
+}],
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "block.png",
+	"format": "RGBA8888",
+	"size": {"w":580,"h":1546},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:4abe66cf20aebebd4ff2823a1d199c87$"
+}
+}

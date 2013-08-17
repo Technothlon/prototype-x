@@ -24,7 +24,7 @@ class error implements Page{
     }
 
     function _503($var){
-        echo 'you are in restricted zone';
+        echo 'you are in restricted zone. <a href="'.get('home_url').'">return home</a>';
     }
 
 }

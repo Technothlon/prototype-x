@@ -1,8 +1,8 @@
 <?php
 /**
  * Developer: Rahul Kadyan
- * Date: 06/08/13
- * Time: 2:51 PM
+ * Date: 13/08/13
+ * Time: 11:42 PM
  * Product: JetBrains PhpStorm
  * Copyright (C) 2013 Rahul Kadyan
  *
@@ -22,25 +22,3 @@
  * DEALINGS IN THE SOFTWARE.
  */
 if (!defined('xDEC')) exit;
-class Block
-{
-    public $length,
-        $id,
-        $position;
-
-    public function __construct($length, $id, $position)
-    {
-        $this->length = $length;
-        $this->position = $position;
-        $this->id = $id;
-    }
-
-    public function move($by, $map)
-    {
-        //echo 'move ' . $this->id . ' by ' . $by . '<br>';
-    } //Override
-    public function movable($by, $map)
-    {
-        //echo 'try ' . $this->id . ' by ' . $by . '';
-    }
-}

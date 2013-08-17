@@ -9,6 +9,13 @@ require_once(CORE . 'Page.php');
 require_once(CORE.'Admin.php');
 require_once(CORE.'Extension.php');
 
+//Loading modal
+$modal = opendir(BASE.'Modal/');
+while($file = readdir($modal)){
+    if(is_file(BASE.'Modal/'.$file))
+        require_once(BASE.'Modal/'.$file);
+}
+
 define('BASE_URL', (is_ssl()?'https://':'http://').$_SERVER['HTTP_HOST']);
 set('home_url', BASE_URL.DIR.'/');
 error_reporting(E_ALL);

@@ -21,7 +21,7 @@ class Extensions {
         $this->extensions = array();
         $this->namespaces = array();
         $dh = @opendir(EXT);
-        while (($filename = readdir ($dh))) {
+        while ($filename = readdir ($dh)) {
             if($filename == '.' || $filename == '..') continue;
             if(is_dir(EXT.$filename)){
                 if(file_exists(EXT.$filename.'/'.$filename.'.php')){
