@@ -56,7 +56,7 @@
  * @author Andy Prevost
  * @author Jim Jagielski
  */
-
+exit;
 class POP3 {
     /**
      * Default POP3 port

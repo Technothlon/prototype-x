@@ -101,7 +101,7 @@ class Database {
      */
     public function update( $table, $change, $condition, $args, $limit = NULL )
     {
-        $update = "UPDATE {$table} SET";
+        $update = "UPDATE {$table} SET ";
         foreach( $change as $field => $value )
         {
             $update .= "`" . $field . "`=".(is_string($value)?"'".get('Security')->mysql($value)."'": $value).",";
@@ -191,8 +191,11 @@ class Database {
      * Closes the active MySQL connection
      */
     private function close(){
-        if($this->_connection instanceof mysqli)
+        if($this->_connection && $this->_connection instanceof mysqli)
+        {
             $this->_connection->close();
+            $this->_connection = null;
+        }
     }
 
     /**

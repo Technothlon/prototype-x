@@ -21,6 +21,7 @@ class Extensions {
         $this->extensions = array();
         $this->namespaces = array();
         $dh = @opendir(EXT);
+        if($dh){
         while ($filename = readdir ($dh)) {
             if($filename == '.' || $filename == '..') continue;
             if(is_dir(EXT.$filename)){
@@ -33,6 +34,7 @@ class Extensions {
                     }
                 }
             }
+        }
         }
     }
 

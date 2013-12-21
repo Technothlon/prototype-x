@@ -993,34 +993,10 @@ function renderLoop(){
                       // draw level complete animation
                       // LevelDictionary["1"].draw(); 
                       once = false;
-                       // window.setTimeout( function(){alert("completed");}, 1);
-                      //LevelDictionary["1"].doAuto();
-                      //window.clearInterval(renderLoopVariable);
-                      showAlert('Prototype X', 'Level finished!!!<br> Reload page?', function(){
-                          window.location.href = window.location.href;
-                      }, 'ok', '', 1000);
-                      var auto_raw = LevelDictionary[window.loadedLevel].auto;
-                      var auto = [];
-                      for(var i = 0; i < auto_raw.length; ++i){
-                          auto.push(
-                              [
-                                  auto_raw[i].id,
-                                  auto_raw[i]._do
-                              ]
-                          )
-                      }
-                      var auto_string = JSON.stringify(auto);
-                      $.ajax({
-                          url: window.home_url+'home/form/store',
-                          method: 'post',
-                          data: {
-                              'data': auto_string,
-                              'moves': auto.length,
-                              'level': window.loadedLevel
-                          }
-                      }).done(function(text){
-
-                          });
+                      showAlert('Prototype X', 'Level finished!!!<br> Submit this level?', function(){
+                          $('#draft_'+LevelDictionary[loadedLevel]['id']).prop('checked', true);
+                          $('#draft').submit();
+                      }, 'ok', 'cancel', 1000);
                   }
     },1000/ENV.fps);
                   

@@ -11,7 +11,14 @@ html, body{
     -ms-user-select: none;
     user-select: none;
 }
-
+h1.centre{
+    display: block;
+    font-family: helvetica, geneva, sans-serif;
+    font-size: 64px;
+    text-align: center;
+    color: #dadada;
+    margin: 20% auto;
+}
 h1.head{
     display: block;
     font-family: helvetica, geneva, sans-serif;
@@ -20,9 +27,17 @@ h1.head{
     color: #fafafa;
 }
 
+h2.head{
+    display: block;
+    font-family: helvetica, geneva, sans-serif;
+    font-size: 36px;
+    text-align: center;
+    color: #afafaf;
+}
+
 a.link{
     display: inline-block;
-    width: 33%;
+    width: 25%;
     line-height: 64px;
     height: 64px;
     margin: 15% 0;
@@ -50,4 +65,102 @@ input.button{
     color: #555555;
     margin: 8px;
     display: inline;
+}
+
+input[type=radio]{
+
+}
+
+label.submit-draft{
+    cursor: pointer;
+}
+
+input[type=submit].submit-draft{
+    display: block;
+    padding: 8px 16px;
+    width: 96px;
+    margin: 16px;
+    color: #cccccc;
+    background: #ff6700;
+    text-decoration: none;
+    font-family: helvetica, geneva, sans-serif;
+    clear: both;
+    float: left;
+    z-index: 2;
+    cursor: pointer;
+}
+div#alert{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    overflow: auto;
+    opacity: 0.9;
+    font-family: helvetica, sans-serif;
+    z-index: 1000;
+}
+
+#alert > div{
+    padding: 16px;
+    margin: 20% auto 0 auto;
+    background: #fff;
+    width: 256px;
+    text-align: center;
+}
+
+#alert h1{
+    text-align: center;
+}
+
+#alert > div > div{
+    text-align: left;
+}
+
+#alert div.button{
+    background: #666;
+    border-radius: 5px;
+    padding: 8px;
+    width: 30%;
+    display: inline-block;
+    margin: 32px 8px;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+#alert.large > div{
+    padding: 16px;
+    margin: 32px auto 32px auto;
+    background: #fff;
+    width: 800px;
+    overflow: auto;
+    text-align: center;
+}
+
+#alert.large h1{
+    text-align: center;
+}
+
+
+#alert.large h2{
+    text-align: center;
+    color: #555555;
+}
+
+#alert.large > div > div{
+    text-align: left;
+}
+
+#alert.large div.button{
+    background: #666;
+    border-radius: 5px;
+    padding: 8px;
+    width: 30%;
+    display: inline-block;
+    margin: 32px 8px;
+    text-align: center;
+    cursor: pointer;
 }

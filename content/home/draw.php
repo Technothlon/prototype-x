@@ -23,18 +23,20 @@
  */
 if(!defined('xDEC')) exit;
 ?>
-<div style=" webkit-touch-callout: none;
+<div style="
+ webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;">
-    <div style="z-index: 10001; background: #00a287; padding: 8px 16px; cursor: pointer; color: #ccc; text-align: center; font-family: helvetica, geneva, sans-serif; font-size: 16px; " onclick="submit()">Submit</div>
-    <canvas id="GameCanvas" style="cursor: pointer; position: absolute;top: 32px; left: 0; z-index: 0" width="1280" height="720"></canvas>
+    <div style="z-index: 10001; background: #00a287; padding: 8px 16px; cursor: pointer; color: #ccc; text-align: center; font-family: helvetica, geneva, sans-serif; font-size: 16px; " onclick="submit()">Save</div>
+    <canvas id="GameCanvas" style="cursor: pointer; position: absolute;top: 32px; left: 16px; z-index: 0" width="1280" height="720"></canvas>
     <canvas id="HoverCanvas" style="cursor: pointer; position: absolute;top: 32px; left: 0; z-index: 1" width="1280" height="720"></canvas>
     <a style="float: left; display: inline-block; padding: 8px 16px; margin: 16px; color: #cccccc; background: #ff6700; text-decoration: none; font-family: helvetica, geneva, sans-serif; position: absolute; bottom: 0; right: 0; z-index: 2; cursor: po
-    " href="<?php echo get('home_url'); ?>">back</a>
+    " href="<?php echo get('home_url'); ?>">home</a>
 </div>
+<div id="alert"></div>
 <script>
     var a = [
         {

@@ -8,7 +8,7 @@ ENV = {
     size: 72,
     source_pos: { x:872, y: 100 }, // size * 7 + offset
     offset: {
-        x: 00,
+        x: 16,
         y: 100
     },
     speed: 2000,
@@ -743,7 +743,9 @@ function submit(){
         async: true,
         url: window.home_url + 'home/form/level'
     }).done(function(text){
-            $('body').html(text);
+            showAlert('Prototype X', text, function(){
+                window.location.href = window.home_url;
+            }, 'Home', 'Create', 0);
         });
 }
 function swap(pos){

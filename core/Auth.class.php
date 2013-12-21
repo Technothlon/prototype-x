@@ -9,11 +9,7 @@ if(!defined('xDEC')) exit;
  */
 class Auth {
     private static $table;
-    private static $fields = array(
-        'user_id' => 'id',
-        'username' => 'username',
-        'password' => 'password'
-    );
+    private static $fields = array();
     public function __construct(){
         Auth::$table = Login::$name;
         Auth::$fields['user_id'] = Login::$field_id;
@@ -67,6 +63,10 @@ class Auth {
 
     public function logged_id(){
         return($_SESSION['xdec_user_id']);
+    }
+
+    public function username(){
+        return($_SESSION['username']);
     }
 
 }
